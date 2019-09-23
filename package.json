@@ -1,0 +1,43 @@
+{
+  "name": "markdown-it-vue-ant",
+  "version": "0.1.0",
+  "description": "markdown-it-vue-ant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xbases/markdown-it-vue-ant.git"
+  },
+  "keywords": [
+    "markdown-it",
+    "markdown-it-vue",
+    "markdown-it-vue-ant"
+  ],
+  "author": "xbases.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xbases/markdown-it-vue-ant/issues"
+  },
+  "homepage": "https://github.com/xbases/markdown-it-vue-ant#readme",
+  "dependencies": {
+    "ant-design-vue": "^1.4.0-beta.0",
+    "core-js": "^3.2.1",
+    "markdown-it": "^10.0.0",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-import": "^1.12.2",
+    "eslint": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "prettier": "^1.18.2",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
