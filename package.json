@@ -26,7 +26,14 @@
     "ant-design-vue": "^1.4.0-beta.0",
     "core-js": "^2.6.5",
     "markdown-it": "^10.0.0",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-footnote": "^3.0.2",
     "markdown-it-github-toc": "^3.2.4",
+    "markdown-it-highlight": "^0.2.0",
+    "markdown-it-ins": "^3.0.0",
+    "markdown-it-mark": "^3.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

@@ -28,7 +28,15 @@
 <script>
 import MarkdownIt from "markdown-it";
 import MarkdownItGithubToc from "markdown-it-github-toc";
+import MarkdownItHightlight from "markdown-it-highlight";
+import MarkdownItSub from "markdown-it-sub";
+import MarkdownItSup from "markdown-it-sup";
+import MarkdownItMark from "markdown-it-mark";
+import MarkdownItIns from "markdown-it-ins";
+import MarkdownItFootnote from "markdown-it-footnote";
+import MarkdownItAbbr from "markdown-it-abbr";
 import "github-markdown-css";
+import "markdown-it-highlight/dist/index.css";
 export default {
   name: "MarkdownItVueAnt",
   props: {
@@ -57,10 +65,15 @@ export default {
       anchorClassName: "anchor",
       anchorLinkSymbolClassName: "octicon octicon-link",
     };
-    const md = new MarkdownIt().use(
-      MarkdownItGithubToc,
-      DEFAULT_OPTIONS_GITHUBTOC,
-    );
+    const md = new MarkdownIt()
+      .use(MarkdownItGithubToc, DEFAULT_OPTIONS_GITHUBTOC)
+      .use(MarkdownItHightlight)
+      .use(MarkdownItSub)
+      .use(MarkdownItSup)
+      .use(MarkdownItMark)
+      .use(MarkdownItIns)
+      .use(MarkdownItFootnote)
+      .use(MarkdownItAbbr);
     return {
       md: md,
       currentContent: this.content,
@@ -75,9 +88,6 @@ export default {
 };
 </script>
 <style>
-.markdown-it-vue-ant-tools {
-  bottom: 10px green;
-}
 .markdown-it-vue-ant-content {
   border: none;
   outline: none;
