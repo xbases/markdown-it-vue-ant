@@ -4,7 +4,8 @@
   "description": "markdown-it-vue-ant",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vue-cli-service serve ./example/main.js",
+    "build:lib": "node node_modules/@vue/cli-service/bin/vue-cli-service.js build --target lib ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,13 +24,15 @@
   "homepage": "https://github.com/xbases/markdown-it-vue-ant#readme",
   "dependencies": {
     "ant-design-vue": "^1.4.0-beta.0",
-    "core-js": "^3.2.1",
+    "core-js": "^2.6.5",
     "markdown-it": "^10.0.0",
+    "markdown-it-github-toc": "^3.2.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
@@ -37,6 +40,9 @@
     "eslint": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.2.3",
+    "github-markdown-css": "^3.0.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
     "prettier": "^1.18.2",
     "vue-template-compiler": "^2.6.10"
   }
