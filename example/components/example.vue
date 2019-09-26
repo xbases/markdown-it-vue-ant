@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+    <a-button @click="getCurrentMd">get md</a-button>
     <markdown-it-vue-ant
       class="md-body"
-      :content="content"
+      :content="'# content'"
       :options="options"
+      ref="mdEditor"
     />
   </div>
 </template>
@@ -31,21 +33,10 @@ export default {
       },
     };
   },
+  methods: {
+    getCurrentMd() {
+      alert(this.$refs.mdEditor.currentContent);
+    },
+  },
 };
 </script>
-
-<style scoped>
-.containerd {
-  display: inline-flex;
-  width: 60%;
-}
-
-.md-textd {
-  width: 47%;
-}
-
-.md-bodyd {
-  width: 50%;
-  margin-left: 20px;
-}
-</style>
