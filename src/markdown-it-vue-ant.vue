@@ -1,18 +1,32 @@
 <template>
-  <div style="margin:10px">
-    <a-row type="flex">
+  <div style="margin:100px">
+    <a-row type="flex" style="background-color:white;border:2px solid #1890ff">
       <a-button-group>
         <a-dropdown>
           <a-menu slot="overlay">
             <template v-for="h in 6">
-              <a-menu-item :key="h" @click="insertHeading(h)"
-                >Level {{ h }} heading</a-menu-item
+              <a-menu-item :key="h" @click="insertHeader(h)"
+                >Level {{ h }} Header</a-menu-item
               >
             </template>
           </a-menu>
-          <a-button>H</a-button>
+          <a-button>Header</a-button>
         </a-dropdown>
-        <a-button>OK</a-button>
+        <a-button @click="insertToc">ToC</a-button>
+        <a-button @click="insertTable">Table</a-button>
+        <a-button @click="insertScript">Script</a-button>
+        <a-dropdown>
+          <a-menu slot="overlay">
+            <a-menu-item @click="insertFlowchart">flowchart</a-menu-item>
+            <a-menu-item @click="insertSequence">sequence</a-menu-item>
+            <a-menu-item @click="insertGantt">gantt</a-menu-item>
+          </a-menu>
+          <a-button>Mermaid</a-button>
+        </a-dropdown>
+        <a-button @click="insertSub">Sub</a-button>
+        <a-button @click="insertSup">Sup</a-button>
+        <a-button @click="insertMark">Mark</a-button>
+        <a-button @click="clear">Clear</a-button>
       </a-button-group>
     </a-row>
     <a-row type="flex" style="background-color:green">
@@ -121,21 +135,57 @@ export default {
           val +
           content.substring(endPos, content.length);
         if (restoreTop > 0) {
-          editor.scrollTop = restoreTop;
+          //editor.scrollTop = restoreTop;
+          console.log("scrollTop");
         }
       } else {
         this.currentContent += val;
       }
       this.render().then(() => {
-        editor.focus();
         editor.setSelectionRange(this.newStartPos, this.newStartPos);
+        editor.focus();
       });
     },
-    insertHeading(level) {
+    insertHeader(level) {
       this.insert("#".repeat(level) + " ");
-      const editor = document.getElementById("markdown-it-vue-ant-content");
-      editor.focus();
-      editor.setSelectionRange(3, 3);
+    },
+    insertToc() {
+      this.insert("[toc]\n");
+    },
+    insertTable() {
+      this.insert(
+        "| First Header | Second Header |\n| :--: | :--: |\n| Content Cell | Content Cell |\n",
+      );
+    },
+    insertSub() {
+      this.insert("H~2~O\n");
+    },
+    insertSup() {
+      this.insert("9^th^\n");
+    },
+    insertScript() {
+      this.insert("```bash\nfor i in `seq 100`;do\n    echo $i\ndone\n```\n");
+    },
+    insertMark() {
+      this.insert("==mark==\n");
+    },
+    insertFlowchart() {
+      this.insert(
+        "```mermaid\ngraph TD;\nA-->B;\nA-->C;\nB-->D;\nC-->D;\n```\n",
+      );
+    },
+    insertSequence() {
+      this.insert(
+        "```mermaid\nsequenceDiagram\nparticipant Alice\nparticipant Bob\nAlice->>John: Hello John, how are you?\nloop Healthcheck\nJohn->>John: Fight against hypochondria\nend\nNote right of John: Rational thoughts <br/>prevail!\nJohn-->>Alice: Great!\nJohn->>Bob: How about you?\nBob-->>John: Jolly good!\n```\n",
+      );
+    },
+    insertGantt() {
+      this.insert(
+        "```mermaid\ngantt\ndateFormat  YYYY-MM-DD\ntitle Adding GANTT diagram to mermaid\nexcludes weekdays 2014-01-10\nsection A section\nCompleted task:done,des1,2014-01-06,2014-01-08\nActive task:active,des2,2014-01-09,3d\nFuture task:des3,after des2,5d\nFuture task2:des4,after des3,5d\n```\n",
+      );
+    },
+    clear() {
+      this.currentContent = "";
     },
   },
   watch: {

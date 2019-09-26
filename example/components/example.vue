@@ -3,7 +3,7 @@
     <a-button @click="getCurrentMd">get md</a-button>
     <markdown-it-vue-ant
       class="md-body"
-      :content="'# content'"
+      :content="content"
       :options="options"
       ref="mdEditor"
     />
