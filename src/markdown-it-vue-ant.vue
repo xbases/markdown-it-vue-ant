@@ -1,7 +1,7 @@
 <template>
-  <div style="margin:100px">
-    <a-row type="flex" style="background-color:white;border:2px solid #1890ff">
-      <a-button-group>
+  <div>
+    <a-row type="flex" v-if="!isPreview">
+      <a-button-group class="markdown-it-vue-ant-tools-bar">
         <a-dropdown>
           <a-menu slot="overlay">
             <template v-for="h in 6">
@@ -26,12 +26,27 @@
         <a-button @click="insertSub">Sub</a-button>
         <a-button @click="insertSup">Sup</a-button>
         <a-button @click="insertMark">Mark</a-button>
-        <a-button @click="clear">Clear</a-button>
+        <a-popconfirm
+          title="Are you sure clean this markdown content?"
+          @confirm="clean"
+          ok-text="Clean"
+        >
+          <a-button>Clean</a-button></a-popconfirm
+        >
       </a-button-group>
     </a-row>
-    <a-row type="flex" style="background-color:green">
-      <a-card :body-style="bodyStyle" spellcheck="false" style="width:100%">
-        <a-col :span="12">
+    <a-row type="flex">
+      <a-card
+        :class="[
+          isPreview
+            ? 'markdown-it-vue-ant-card-preview'
+            : 'markdown-it-vue-ant-card',
+        ]"
+        :body-style="bodyStyle"
+        spellcheck="false"
+        style="width:100%"
+      >
+        <a-col :span="12" v-if="!isPreview">
           <a-textarea
             id="markdown-it-vue-ant-content"
             class="markdown-it-vue-ant-content"
@@ -41,7 +56,7 @@
             :auto-focus="true"
           ></a-textarea>
         </a-col>
-        <a-col :span="12">
+        <a-col :span="previewSpan">
           <div
             class="markdown-body markdown-it-vue-ant-preview"
             v-html="preview"
@@ -73,15 +88,9 @@ export default {
       type: String,
       default: "# Hello World!",
     },
-    options: {
-      type: Object,
-      default() {
-        return {
-          markdownIt: {
-            linkify: true,
-          },
-        };
-      },
+    isPreview: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -127,17 +136,16 @@ export default {
       if (editor.selectionStart || editor.selectionStart === 0) {
         const startPos = editor.selectionStart;
         const endPos = editor.selectionEnd;
-        const restoreTop = editor.scrollTop;
+        //const restoreTop = editor.scrollTop;
         const content = this.currentContent;
         this.newStartPos = startPos + val.length;
         this.currentContent =
           content.substring(0, startPos) +
           val +
           content.substring(endPos, content.length);
-        if (restoreTop > 0) {
-          //editor.scrollTop = restoreTop;
-          console.log("scrollTop");
-        }
+        /*if (restoreTop > 0) {
+          editor.scrollTop = restoreTop;
+        }*/
       } else {
         this.currentContent += val;
       }
@@ -184,7 +192,7 @@ export default {
         "```mermaid\ngantt\ndateFormat  YYYY-MM-DD\ntitle Adding GANTT diagram to mermaid\nexcludes weekdays 2014-01-10\nsection A section\nCompleted task:done,des1,2014-01-06,2014-01-08\nActive task:active,des2,2014-01-09,3d\nFuture task:des3,after des2,5d\nFuture task2:des4,after des3,5d\n```\n",
       );
     },
-    clear() {
+    clean() {
       this.currentContent = "";
     },
   },
@@ -194,6 +202,21 @@ export default {
       handler: function() {
         this.generatePreview();
       },
+    },
+    content: {
+      immediate: true,
+      handler: function() {
+        this.currentContent = this.content;
+      },
+    },
+  },
+  computed: {
+    previewSpan: function() {
+      if (this.isPreview) {
+        return 24;
+      } else {
+        return 12;
+      }
     },
   },
   mounted: function() {
@@ -222,5 +245,10 @@ export default {
 }
 .markdown-it-vue-ant-preview {
   margin: 10px;
+}
+.markdown-it-vue-ant-tools-bar .ant-btn {
+  border-bottom: none;
+  font-style: oblique;
+  font-weight: bold;
 }
 </style>

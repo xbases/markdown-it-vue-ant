@@ -2,7 +2,8 @@
   "name": "markdown-it-vue-ant",
   "version": "0.1.0",
   "description": "markdown-it-vue-ant",
-  "main": "index.js",
+  "main": "dist/markdown-it-vue-ant.umd.min.js",
+  "files": ["dist","src"],
   "scripts": {
     "dev": "vue-cli-service serve ./example/main.js",
     "build:lib": "node node_modules/@vue/cli-service/bin/vue-cli-service.js build --target lib ./src/index.js"

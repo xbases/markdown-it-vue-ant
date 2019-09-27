@@ -9,6 +9,7 @@ import {
   Icon,
   Dropdown,
   Menu,
+  Popconfirm,
 } from "ant-design-vue";
 
 import App from "./App.vue";
@@ -23,6 +24,7 @@ Vue.use(Input);
 Vue.use(Icon);
 Vue.use(Dropdown);
 Vue.use(Menu);
+Vue.use(Popconfirm);
 
 new Vue({
   render: h => h(App),
