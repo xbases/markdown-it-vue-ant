@@ -70,23 +70,22 @@
 <script>
 import MarkdownIt from "markdown-it";
 import MarkdownItGithubToc from "markdown-it-github-toc";
-import MarkdownItHightlight from "markdown-it-highlight";
 import MarkdownItSub from "markdown-it-sub";
 import MarkdownItSup from "markdown-it-sup";
 import MarkdownItMark from "markdown-it-mark";
 import MarkdownItIns from "markdown-it-ins";
 import MarkdownItFootnote from "markdown-it-footnote";
 import MarkdownItAbbr from "markdown-it-abbr";
+import MarkdownItHightlight from "./markdown-it-highlight";
 import MarkdownItMermaid from "./markdown-it-mermaid";
 import "github-markdown-css";
-import "markdown-it-highlight/dist/index.css";
 
 export default {
   name: "MarkdownItVueAnt",
   props: {
     content: {
       type: String,
-      default: "# Hello World!",
+      default: "",
     },
     isPreview: {
       type: Boolean,
