@@ -1,5 +1,5 @@
 # markdown-it-vue-ant
-> The vue lib for markdown-it whith vue.ant.design
+> The vue lib for markdown-it with vue.ant.design
 ## Install
 
 ```sh
