@@ -76,9 +76,31 @@ import MarkdownItMark from "markdown-it-mark";
 import MarkdownItIns from "markdown-it-ins";
 import MarkdownItFootnote from "markdown-it-footnote";
 import MarkdownItAbbr from "markdown-it-abbr";
+import MarkdownItLinkAttrs from "./markdown-it-link-attrs";
 import MarkdownItHightlight from "./markdown-it-highlight";
 import MarkdownItMermaid from "./markdown-it-mermaid";
 import "github-markdown-css";
+
+const DEFAULT_OPTIONS_GITHUBTOC = {
+  tocFirstLevel: 2,
+  tocLastLevel: 3,
+  tocClassName: "toc",
+  anchorLinkSymbol: "",
+  anchorLinkSpace: false,
+  anchorClassName: "anchor",
+  anchorLinkSymbolClassName: "octicon octicon-link",
+};
+const md = new MarkdownIt()
+  .use(MarkdownItGithubToc, DEFAULT_OPTIONS_GITHUBTOC)
+  .use(MarkdownItHightlight)
+  .use(MarkdownItSub)
+  .use(MarkdownItSup)
+  .use(MarkdownItMark)
+  .use(MarkdownItIns)
+  .use(MarkdownItFootnote)
+  .use(MarkdownItAbbr)
+  .use(MarkdownItMermaid)
+  .use(MarkdownItLinkAttrs);
 
 export default {
   name: "MarkdownItVueAnt",
@@ -93,25 +115,6 @@ export default {
     },
   },
   data() {
-    const DEFAULT_OPTIONS_GITHUBTOC = {
-      tocFirstLevel: 2,
-      tocLastLevel: 3,
-      tocClassName: "toc",
-      anchorLinkSymbol: "",
-      anchorLinkSpace: false,
-      anchorClassName: "anchor",
-      anchorLinkSymbolClassName: "octicon octicon-link",
-    };
-    const md = new MarkdownIt()
-      .use(MarkdownItGithubToc, DEFAULT_OPTIONS_GITHUBTOC)
-      .use(MarkdownItHightlight)
-      .use(MarkdownItSub)
-      .use(MarkdownItSup)
-      .use(MarkdownItMark)
-      .use(MarkdownItIns)
-      .use(MarkdownItFootnote)
-      .use(MarkdownItAbbr)
-      .use(MarkdownItMermaid);
     return {
       md: md,
       currentContent: "",

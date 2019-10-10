@@ -28,6 +28,8 @@ Vue.use(MarkdownItVueAnt);
 - markdown-it-mermaid
 - markdown-it-highlight
   > include: javascript go bash python nginx
+- markdown-it-links-attrs
+  > Opens the linked document in a new window or tab
 
 ## License
 [MIT](https://github.com/ravenq/markdown-it-vue/blob/master/LICENSE)
