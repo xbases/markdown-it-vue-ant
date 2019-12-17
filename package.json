@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-vue-ant",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "markdown-it-vue-ant",
   "main": "dist/markdown-it-vue-ant.umd.min.js",
   "files": [
