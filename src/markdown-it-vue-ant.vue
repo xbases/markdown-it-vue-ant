@@ -229,7 +229,7 @@ export default {
 </script>
 <style>
 .markdown-body pre code {
-  white-space: pre-line !important;
+  white-space: pre-wrap;
 }
 .markdown-it-vue-ant-content {
   border: none;
