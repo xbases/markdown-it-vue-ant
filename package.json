@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-vue-ant",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "markdown-it-vue-ant",
   "main": "dist/markdown-it-vue-ant.umd.min.js",
   "files": [
@@ -12,22 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/xbases/markdown-it-vue-ant.git"
+    "url": "git+ssh://git@github.com/io-notes/markdown-it-vue-ant.git"
   },
   "keywords": [
     "markdown-it",
     "markdown-it-vue",
     "markdown-it-vue-ant"
   ],
-  "author": "xbases.org",
+  "author": "io-notes.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xbases/markdown-it-vue-ant/issues"
+    "url": "https://github.com/io-notes/markdown-it-vue-ant/issues"
   },
-  "homepage": "https://github.com/xbases/markdown-it-vue-ant#readme",
+  "homepage": "https://github.com/io-notes/markdown-it-vue-ant#readme",
   "dependencies": {
-    "ant-design-vue": "^1.4.0-beta.0",
-    "core-js": "^2.6.5",
+    "ant-design-vue": "^1.5.0",
+    "core-js": "^3.6.4",
     "markdown-it": "^10.0.0",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-footnote": "^3.0.2",
@@ -36,18 +36,18 @@
     "markdown-it-mark": "^3.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "mermaid": "^8.3.1",
-    "vue": "^2.6.10"
+    "mermaid": "^8.4.8",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
     "babel-plugin-import": "^1.12.2",
-    "eslint": "^6.4.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.2.3",
     "github-markdown-css": "^3.0.1",
@@ -55,7 +55,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "prettier": "^1.18.2",
-    "vue-template-compiler": "^2.6.10",
-    "serialize-javascript": ">=2.1.1"
+    "serialize-javascript": ">=2.1.1",
+    "vue-template-compiler": "^2.6.11"
   }
 }
