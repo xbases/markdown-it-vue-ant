@@ -227,7 +227,10 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
+.markdown-body pre code {
+  white-space: pre-wrap;
+}
 .markdown-it-vue-ant-content {
   border: none;
   outline: none;
