@@ -36,7 +36,7 @@
     "markdown-it-mark": "^3.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "mermaid": "^8.4.8",
+    "mermaid": "^8.5.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
