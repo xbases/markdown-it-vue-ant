@@ -1,5 +1,5 @@
 import MarkdownItVueAnt from "./markdown-it-vue-ant";
-const install = function(Vue) {
+const install = function (Vue) {
   Vue.component(MarkdownItVueAnt.name, MarkdownItVueAnt);
 };
 
