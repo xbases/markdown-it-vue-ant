@@ -1,7 +1,7 @@
-const MarkdownItLinkAttrs = md => {
+const MarkdownItLinkAttrs = (md) => {
   const temp =
     md.renderer.rules.link_open ||
-    function(tokens, idx, options, env, self) {
+    function (tokens, idx, options, env, self) {
       return self.renderToken(tokens, idx, options);
     };
   md.renderer.rules.link_open = (tokens, idx, options, env, slf) => {

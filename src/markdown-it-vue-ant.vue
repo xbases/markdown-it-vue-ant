@@ -44,7 +44,7 @@
         ]"
         :body-style="bodyStyle"
         spellcheck="false"
-        style="width: 100%;"
+        style="width: 100%"
       >
         <a-col :span="12" v-if="!isPreview">
           <a-textarea
