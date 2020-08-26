@@ -1,6 +1,6 @@
 import mermaid from "mermaid";
 
-const mermaidParse = code => {
+const mermaidParse = (code) => {
   try {
     mermaid.parse(code);
     return `<div class="mermaid">${code}</div>`;
@@ -8,9 +8,12 @@ const mermaidParse = code => {
     return `<pre>${str}</pre>`;
   }
 };
-const MarkdownItMermaid = md => {
+const MarkdownItMermaid = (md) => {
   mermaid.initialize({
-    theme: "default",
+    flowchart: {
+      useMaxWidth: true,
+    },
+    theme: "forest",
   });
   md.mermaid = mermaid;
   const temp = md.renderer.rules.fence.bind(md.renderer.rules);

@@ -1,4 +1,4 @@
-import hljs from "highlight.js/lib/highlight";
+import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import go from "highlight.js/lib/languages/go";
 import bash from "highlight.js/lib/languages/bash";
@@ -12,7 +12,7 @@ hljs.registerLanguage("bash", bash);
 hljs.registerLanguage("python", python);
 hljs.registerLanguage("nginx", nginx);
 
-const MarkdownItHighlight = md => {
+const MarkdownItHighlight = (md) => {
   const temp = md.renderer.rules.fence.bind(md.renderer.rules);
   md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
     const token = tokens[idx];

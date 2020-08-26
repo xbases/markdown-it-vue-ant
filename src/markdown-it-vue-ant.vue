@@ -44,7 +44,7 @@
         ]"
         :body-style="bodyStyle"
         spellcheck="false"
-        style="width:100%"
+        style="width: 100%;"
       >
         <a-col :span="12" v-if="!isPreview">
           <a-textarea
@@ -201,19 +201,19 @@ export default {
   watch: {
     currentContent: {
       immediate: true,
-      handler: function() {
+      handler: function () {
         this.generatePreview();
       },
     },
     content: {
       immediate: true,
-      handler: function() {
+      handler: function () {
         this.currentContent = this.content;
       },
     },
   },
   computed: {
-    previewSpan: function() {
+    previewSpan: function () {
       if (this.isPreview) {
         return 24;
       } else {
@@ -221,7 +221,7 @@ export default {
       }
     },
   },
-  mounted: function() {
+  mounted: function () {
     this.currentContent = this.content;
     this.generatePreview();
   },
